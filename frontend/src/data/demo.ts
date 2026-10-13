@@ -1,4 +1,4 @@
-import type { Category, Product, CustomOrderRequest, Order } from '../types';
+import type { Category, Product, Order } from '../types';
 
 export const DEMO_CATEGORIES: Category[] = [
   {

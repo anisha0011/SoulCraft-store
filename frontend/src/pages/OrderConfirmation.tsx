@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { CheckCircle2, Truck, Package, MapPin } from 'lucide-react';
 import { ordersApi } from '../api';

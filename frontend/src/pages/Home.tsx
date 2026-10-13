@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star } from 'lucide-react';
 import { Button } from '../components/common/Button';
@@ -7,7 +7,6 @@ import { productsApi, categoriesApi } from '../api';
 import type { Product, Category } from '../types';
 
 export default function Home() {
-  const [featuredProducts, setFeaturedProducts] = useState<Product[]>([]);
   const [bestsellers, setBestsellers] = useState<Product[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -15,12 +14,10 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [featured, best, cats] = await Promise.all([
-          productsApi.getFeatured(),
+        const [best, cats] = await Promise.all([
           productsApi.getBestsellers(),
           categoriesApi.getAll()
         ]);
-        setFeaturedProducts(featured.slice(0, 4));
         setBestsellers(best.slice(0, 4));
         setCategories(cats);
       } catch (error) {
@@ -76,7 +73,7 @@ export default function Home() {
             {categories.map((category) => (
               <Link 
                 key={category.id} 
-                to={`/shop?category=\${category.slug}`}
+                to={`/shop?category=${category.slug}`}
                 className="group relative overflow-hidden rounded-2xl aspect-[4/5] bg-gray-100 flex flex-col justify-end p-6"
               >
                 <img 

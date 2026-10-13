@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { LayoutDashboard, ShoppingBag, Edit3, Users, Settings, LogOut, Package } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { LayoutDashboard, ShoppingBag, Edit3, LogOut, Package } from 'lucide-react';
 import { useAuthStore } from '../store/useAuthStore';
 import { productsApi, ordersApi, customOrdersApi } from '../api';
 import type { Product, Order, CustomOrderRequest } from '../types';
@@ -60,16 +60,16 @@ export default function AdminDashboard() {
           <p className="text-sm text-gray-400 mt-1">Admin Panel</p>
         </div>
         <nav className="flex-1 overflow-y-auto py-4">
-          <button onClick={() => setActiveTab('overview')} className={`w-full flex items-center px-6 py-3 transition-colors \${activeTab === 'overview' ? 'bg-[#E8A0B8] text-white' : 'text-gray-300 hover:bg-gray-800'}`}>
+          <button onClick={() => setActiveTab('overview')} className={`w-full flex items-center px-6 py-3 transition-colors ${activeTab === 'overview' ? 'bg-[#E8A0B8] text-white' : 'text-gray-300 hover:bg-gray-800'}`}>
             <LayoutDashboard className="w-5 h-5 mr-3" /> Overview
           </button>
-          <button onClick={() => setActiveTab('products')} className={`w-full flex items-center px-6 py-3 transition-colors \${activeTab === 'products' ? 'bg-[#E8A0B8] text-white' : 'text-gray-300 hover:bg-gray-800'}`}>
+          <button onClick={() => setActiveTab('products')} className={`w-full flex items-center px-6 py-3 transition-colors ${activeTab === 'products' ? 'bg-[#E8A0B8] text-white' : 'text-gray-300 hover:bg-gray-800'}`}>
             <Package className="w-5 h-5 mr-3" /> Products
           </button>
-          <button onClick={() => setActiveTab('orders')} className={`w-full flex items-center px-6 py-3 transition-colors \${activeTab === 'orders' ? 'bg-[#E8A0B8] text-white' : 'text-gray-300 hover:bg-gray-800'}`}>
+          <button onClick={() => setActiveTab('orders')} className={`w-full flex items-center px-6 py-3 transition-colors ${activeTab === 'orders' ? 'bg-[#E8A0B8] text-white' : 'text-gray-300 hover:bg-gray-800'}`}>
             <ShoppingBag className="w-5 h-5 mr-3" /> Orders
           </button>
-          <button onClick={() => setActiveTab('custom')} className={`w-full flex items-center px-6 py-3 transition-colors \${activeTab === 'custom' ? 'bg-[#E8A0B8] text-white' : 'text-gray-300 hover:bg-gray-800'}`}>
+          <button onClick={() => setActiveTab('custom')} className={`w-full flex items-center px-6 py-3 transition-colors ${activeTab === 'custom' ? 'bg-[#E8A0B8] text-white' : 'text-gray-300 hover:bg-gray-800'}`}>
             <Edit3 className="w-5 h-5 mr-3" /> Custom Requests
           </button>
         </nav>
@@ -203,7 +203,7 @@ export default function AdminDashboard() {
                         </td>
                         <td className="px-6 py-4">{formatCurrency(product.price)}</td>
                         <td className="px-6 py-4">
-                          <span className={`\${product.stock < product.lowStockThreshold ? 'text-red-500 font-bold' : ''}`}>
+                          <span className={`${product.stock < product.lowStockThreshold ? 'text-red-500 font-bold' : ''}`}>
                             {product.stock}
                           </span>
                         </td>

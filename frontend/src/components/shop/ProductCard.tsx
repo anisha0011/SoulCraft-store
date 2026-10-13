@@ -57,21 +57,21 @@ export default function ProductCard({ product }: ProductCardProps) {
         onClick={handleWishlistToggle}
         className="absolute top-3 right-3 z-10 p-2 rounded-full bg-white/80 backdrop-blur shadow-sm hover:bg-white transition-colors text-[#806B73] hover:text-[#D9536F]"
       >
-        <Heart className={`h-5 w-5 \${inWishlist ? 'fill-[#D9536F] text-[#D9536F]' : ''}`} />
+        <Heart className={`h-5 w-5 ${inWishlist ? 'fill-[#D9536F] text-[#D9536F]' : ''}`} />
       </button>
 
-      <Link to={`/product/\${product.slug}`} className="block relative aspect-[4/5] overflow-hidden bg-[#FFF5F8]">
+      <Link to={`/product/${product.slug}`} className="block relative aspect-[4/5] overflow-hidden bg-[#FFF5F8]">
         {/* Main Image */}
         <img 
           src={product.images[0]} 
-          alt={product.name}
+          alt={product.name} 
           className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
         />
         {/* Secondary Image on Hover */}
         {product.images[1] && (
           <img 
             src={product.images[1]} 
-            alt={`\${product.name} alternate view`}
+            alt={`${product.name} alternate view`}
             className="absolute inset-0 object-cover w-full h-full opacity-0 transition-opacity duration-500 group-hover:opacity-100"
           />
         )}
@@ -80,7 +80,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         <div className="absolute inset-x-0 bottom-0 p-4 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 bg-gradient-to-t from-black/50 to-transparent flex gap-2">
           {product.isCustomizable ? (
              <Link 
-              to={`/product/\${product.slug}`}
+              to={`/product/${product.slug}`}
               className="flex-1 bg-white text-[#3A2930] h-10 rounded-full flex items-center justify-center font-medium text-sm hover:bg-[#FFF5F8] transition-colors"
              >
                Customize
@@ -94,7 +94,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             </button>
           )}
           <Link 
-            to={`/product/\${product.slug}`}
+            to={`/product/${product.slug}`}
             className="w-10 h-10 bg-white text-[#3A2930] rounded-full flex items-center justify-center hover:bg-[#FFF5F8] transition-colors shrink-0"
           >
             <Eye className="h-4 w-4" />
@@ -103,7 +103,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       </Link>
 
       <div className="p-4 flex flex-col flex-grow">
-        <Link to={`/product/\${product.slug}`}>
+        <Link to={`/product/${product.slug}`}>
           <h3 className="font-serif font-medium text-[#3A2930] text-lg mb-1 line-clamp-1 group-hover:text-[#E8A0B8] transition-colors">
             {product.name}
           </h3>

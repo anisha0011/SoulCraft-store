@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Star, Heart, Share2, ShieldCheck, Truck, Clock } from 'lucide-react';
+import { Star, Heart, ShieldCheck, Truck, Clock } from 'lucide-react';
 import { productsApi } from '../api';
 import type { Product } from '../types';
 import { Button } from '../components/common/Button';
@@ -81,9 +81,9 @@ export default function ProductDetails() {
                 <button 
                   key={idx} 
                   onClick={() => setMainImage(idx)}
-                  className={`relative shrink-0 w-20 h-24 rounded-lg overflow-hidden border-2 transition-colors \${mainImage === idx ? 'border-[#E8A0B8]' : 'border-transparent hover:border-[#F0DDE4]'}`}
+                  className={`relative shrink-0 w-20 h-24 rounded-lg overflow-hidden border-2 transition-colors ${mainImage === idx ? 'border-[#E8A0B8]' : 'border-transparent hover:border-[#F0DDE4]'}`}
                 >
-                  <img src={img} alt={`Thumbnail \${idx}`} className="w-full h-full object-cover" />
+                  <img src={img} alt={`Thumbnail ${idx}`} className="w-full h-full object-cover" />
                 </button>
               ))}
             </div>
@@ -114,7 +114,7 @@ export default function ProductDetails() {
             <div className="flex items-center gap-4 mb-6">
               <div className="flex items-center text-[#F5A623]">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className={`w-4 h-4 \${i < Math.floor(product.rating) ? 'fill-current' : 'fill-transparent'}`} />
+                  <Star key={i} className={`w-4 h-4 ${i < Math.floor(product.rating) ? 'fill-current' : 'fill-transparent'}`} />
                 ))}
               </div>
               <span className="text-sm text-[#806B73]">{product.rating} ({product.reviewCount} reviews)</span>
@@ -170,7 +170,7 @@ export default function ProductDetails() {
                 onClick={handleWishlist}
                 className="w-12 h-12 rounded-full border border-[#F0DDE4] flex items-center justify-center hover:bg-[#FFF5F8] transition-colors shrink-0"
               >
-                <Heart className={`w-5 h-5 \${inWishlist ? 'fill-[#D9536F] text-[#D9536F]' : 'text-[#3A2930]'}`} />
+                <Heart className={`w-5 h-5 ${inWishlist ? 'fill-[#D9536F] text-[#D9536F]' : 'text-[#3A2930]'}`} />
               </button>
             </div>
 

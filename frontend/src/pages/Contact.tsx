@@ -1,4 +1,3 @@
-import React from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { Input } from '../components/common/Input';
 import { Button } from '../components/common/Button';

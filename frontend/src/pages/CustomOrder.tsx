@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -135,7 +135,7 @@ export default function CustomOrder() {
             <div className="mb-8">
               <label className="block text-sm font-medium text-[#3A2930] mb-1.5">Description & Idea</label>
               <textarea 
-                className={`flex w-full rounded-md border \${errors.description ? 'border-[#D9536F] focus-visible:ring-[#D9536F]' : 'border-[#F0DDE4] focus-visible:ring-[#E8A0B8]'} bg-white px-3 py-2 text-sm placeholder:text-[#806B73] focus-visible:outline-none focus-visible:ring-2 disabled:cursor-not-allowed disabled:opacity-50 min-h-[120px]`}
+                className={`flex w-full rounded-md border ${errors.description ? 'border-[#D9536F] focus-visible:ring-[#D9536F]' : 'border-[#F0DDE4] focus-visible:ring-[#E8A0B8]'} bg-white px-3 py-2 text-sm placeholder:text-[#806B73] focus-visible:outline-none focus-visible:ring-2 disabled:cursor-not-allowed disabled:opacity-50 min-h-[120px]`}
                 placeholder="Describe your idea in detail. Colors, themes, materials, names to be included, etc."
                 {...register('description')}
               />

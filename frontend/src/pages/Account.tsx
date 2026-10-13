@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { User as UserIcon, Package, Heart, Edit3, Settings, LogOut, ChevronRight } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { User as UserIcon, Package, Edit3, Settings, LogOut, ChevronRight } from 'lucide-react';
 import { useAuthStore } from '../store/useAuthStore';
 import { ordersApi, customOrdersApi } from '../api';
 import type { Order, CustomOrderRequest } from '../types';
@@ -86,7 +86,7 @@ export default function Account() {
               <nav className="flex flex-col">
                 <button 
                   onClick={() => setActiveTab('orders')}
-                  className={`flex items-center justify-between p-4 text-left transition-colors \${activeTab === 'orders' ? 'bg-[#FFF5F8] text-[#E8A0B8] border-l-4 border-[#E8A0B8]' : 'text-[#3A2930] hover:bg-[#FFF5F8] border-l-4 border-transparent'}`}
+                  className={`flex items-center justify-between p-4 text-left transition-colors ${activeTab === 'orders' ? 'bg-[#FFF5F8] text-[#E8A0B8] border-l-4 border-[#E8A0B8]' : 'text-[#3A2930] hover:bg-[#FFF5F8] border-l-4 border-transparent'}`}
                 >
                   <div className="flex items-center gap-3">
                     <Package className="w-5 h-5" />
@@ -96,7 +96,7 @@ export default function Account() {
                 </button>
                 <button 
                   onClick={() => setActiveTab('custom')}
-                  className={`flex items-center justify-between p-4 text-left transition-colors \${activeTab === 'custom' ? 'bg-[#FFF5F8] text-[#E8A0B8] border-l-4 border-[#E8A0B8]' : 'text-[#3A2930] hover:bg-[#FFF5F8] border-l-4 border-transparent'}`}
+                  className={`flex items-center justify-between p-4 text-left transition-colors ${activeTab === 'custom' ? 'bg-[#FFF5F8] text-[#E8A0B8] border-l-4 border-[#E8A0B8]' : 'text-[#3A2930] hover:bg-[#FFF5F8] border-l-4 border-transparent'}`}
                 >
                   <div className="flex items-center gap-3">
                     <Edit3 className="w-5 h-5" />
@@ -106,7 +106,7 @@ export default function Account() {
                 </button>
                 <button 
                   onClick={() => setActiveTab('profile')}
-                  className={`flex items-center justify-between p-4 text-left transition-colors \${activeTab === 'profile' ? 'bg-[#FFF5F8] text-[#E8A0B8] border-l-4 border-[#E8A0B8]' : 'text-[#3A2930] hover:bg-[#FFF5F8] border-l-4 border-transparent'}`}
+                  className={`flex items-center justify-between p-4 text-left transition-colors ${activeTab === 'profile' ? 'bg-[#FFF5F8] text-[#E8A0B8] border-l-4 border-[#E8A0B8]' : 'text-[#3A2930] hover:bg-[#FFF5F8] border-l-4 border-transparent'}`}
                 >
                   <div className="flex items-center gap-3">
                     <Settings className="w-5 h-5" />
@@ -161,7 +161,7 @@ export default function Account() {
                                   <p className="text-sm text-[#806B73]">Qty: {item.quantity}</p>
                                 </div>
                                 <div className="hidden sm:block">
-                                  <Button variant="outline" size="sm" onClick={() => window.location.href = `/product/\${item.product.slug}`}>
+                                  <Button variant="outline" size="sm" onClick={() => window.location.href = `/product/${item.product.slug}`}>
                                     View Product
                                   </Button>
                                 </div>

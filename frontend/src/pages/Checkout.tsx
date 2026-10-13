@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -67,7 +67,7 @@ export default function Checkout() {
       
       const newOrder = await ordersApi.createOrder(orderData);
       clearCart();
-      navigate(`/order-confirmation/\${newOrder.id}`);
+      navigate(`/order-confirmation/${newOrder.id}`);
     } catch (error) {
       console.error("Checkout failed", error);
     } finally {
@@ -114,7 +114,7 @@ export default function Checkout() {
                 <p className="text-[#806B73] text-sm mb-6">All transactions are secure and encrypted.</p>
                 
                 <div className="space-y-4">
-                  <label className={`flex items-center p-4 border rounded-xl cursor-pointer transition-colors \${paymentMethod === 'upi' ? 'border-[#E8A0B8] bg-[#FFF5F8]' : 'border-[#F0DDE4]'}`}>
+                  <label className={`flex items-center p-4 border rounded-xl cursor-pointer transition-colors ${paymentMethod === 'upi' ? 'border-[#E8A0B8] bg-[#FFF5F8]' : 'border-[#F0DDE4]'}`}>
                     <input type="radio" name="payment" value="upi" checked={paymentMethod === 'upi'} onChange={() => setPaymentMethod('upi')} className="mr-4 accent-[#E8A0B8]" />
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm">
@@ -127,7 +127,7 @@ export default function Checkout() {
                     </div>
                   </label>
                   
-                  <label className={`flex items-center p-4 border rounded-xl cursor-pointer transition-colors \${paymentMethod === 'card' ? 'border-[#E8A0B8] bg-[#FFF5F8]' : 'border-[#F0DDE4]'}`}>
+                  <label className={`flex items-center p-4 border rounded-xl cursor-pointer transition-colors ${paymentMethod === 'card' ? 'border-[#E8A0B8] bg-[#FFF5F8]' : 'border-[#F0DDE4]'}`}>
                     <input type="radio" name="payment" value="card" checked={paymentMethod === 'card'} onChange={() => setPaymentMethod('card')} className="mr-4 accent-[#E8A0B8]" />
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm">
@@ -140,7 +140,7 @@ export default function Checkout() {
                     </div>
                   </label>
                   
-                  <label className={`flex items-center p-4 border rounded-xl cursor-pointer transition-colors \${paymentMethod === 'cod' ? 'border-[#E8A0B8] bg-[#FFF5F8]' : 'border-[#F0DDE4]'}`}>
+                  <label className={`flex items-center p-4 border rounded-xl cursor-pointer transition-colors ${paymentMethod === 'cod' ? 'border-[#E8A0B8] bg-[#FFF5F8]' : 'border-[#F0DDE4]'}`}>
                     <input type="radio" name="payment" value="cod" checked={paymentMethod === 'cod'} onChange={() => setPaymentMethod('cod')} className="mr-4 accent-[#E8A0B8]" />
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm">

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Trash2, ShoppingBag, ArrowRight } from 'lucide-react';
 import { useCartStore } from '../store/useCartStore';
@@ -50,13 +49,13 @@ export default function Cart() {
                 {items.map((item) => {
                   const price = item.product.salePrice || item.product.price;
                   return (
-                    <div key={`\${item.product.id}-\${JSON.stringify(item.customization)}`} className="p-6 grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
+                    <div key={`${item.product.id}-${JSON.stringify(item.customization)}`} className="p-6 grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
                       <div className="col-span-1 sm:col-span-6 flex gap-4">
-                        <Link to={`/product/\${item.product.slug}`} className="w-24 h-24 rounded-lg overflow-hidden shrink-0 bg-[#FFF5F8]">
+                        <Link to={`/product/${item.product.slug}`} className="w-24 h-24 rounded-lg overflow-hidden shrink-0 bg-[#FFF5F8]">
                           <img src={item.product.thumbnail} alt={item.product.name} className="w-full h-full object-cover" />
                         </Link>
                         <div className="flex flex-col justify-center">
-                          <Link to={`/product/\${item.product.slug}`} className="font-medium text-[#3A2930] hover:text-[#E8A0B8] transition-colors line-clamp-2 mb-1">
+                          <Link to={`/product/${item.product.slug}`} className="font-medium text-[#3A2930] hover:text-[#E8A0B8] transition-colors line-clamp-2 mb-1">
                             {item.product.name}
                           </Link>
                           <span className="text-[#806B73] text-sm mb-2">{formatCurrency(price)}</span>
