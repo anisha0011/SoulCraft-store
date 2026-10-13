@@ -31,7 +31,7 @@ export default function CartSlideover({ isOpen, onClose }: CartSlideoverProps) {
 
       {/* Panel */}
       <div
-        className={`fixed right-0 top-0 h-full w-full max-w-md bg-white z-[70] shadow-2xl flex flex-col transition-transform duration-300 ease-out ${
+        className={`fixed right-0 top-0 h-[100dvh] w-full max-w-md bg-white z-[70] shadow-2xl flex flex-col transition-transform duration-300 ease-out ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -151,31 +151,31 @@ export default function CartSlideover({ isOpen, onClose }: CartSlideoverProps) {
 
         {/* Footer */}
         {items.length > 0 && (
-          <div className="border-t border-[#F0DDE4] p-6 space-y-4 bg-white">
-            <div className="flex justify-between items-center text-sm text-[#806B73]">
+          <div className="border-t border-[#F0DDE4] p-4 sm:p-6 pb-6 sm:pb-6 space-y-3 sm:space-y-4 bg-white shrink-0">
+            <div className="flex justify-between items-center text-xs sm:text-sm text-[#806B73]">
               <span>Subtotal</span>
               <span className="font-medium text-[#3A2930]">{formatCurrency(total)}</span>
             </div>
-            <div className="flex justify-between items-center text-sm text-[#806B73]">
+            <div className="flex justify-between items-center text-xs sm:text-sm text-[#806B73]">
               <span>Shipping</span>
               <span className={shipping === 0 ? 'text-[#4F9D69] font-medium' : 'font-medium text-[#3A2930]'}>
                 {shipping === 0 ? 'Free' : formatCurrency(shipping)}
               </span>
             </div>
-            <div className="flex justify-between items-center font-bold text-[#3A2930] text-lg pt-2 border-t border-[#F0DDE4]">
+            <div className="flex justify-between items-center font-bold text-[#3A2930] text-base sm:text-lg pt-2 border-t border-[#F0DDE4]">
               <span>Total</span>
               <span>{formatCurrency(total + shipping)}</span>
             </div>
             <button
               onClick={handleCheckout}
-              className="w-full bg-[#E8A0B8] text-white h-12 rounded-full font-medium text-base hover:bg-[#C96F91] transition-colors flex items-center justify-center gap-2"
+              className="w-full bg-[#E8A0B8] text-white h-11 sm:h-12 rounded-full font-medium text-sm sm:text-base hover:bg-[#C96F91] transition-colors flex items-center justify-center gap-2 shadow-md"
             >
               Checkout <ArrowRight className="w-4 h-4" />
             </button>
             <Link
               to="/cart"
               onClick={onClose}
-              className="w-full border border-[#F0DDE4] text-[#3A2930] h-10 rounded-full font-medium text-sm hover:bg-[#FFF5F8] transition-colors flex items-center justify-center"
+              className="w-full border border-[#F0DDE4] text-[#3A2930] h-10 rounded-full font-medium text-xs sm:text-sm hover:bg-[#FFF5F8] transition-colors flex items-center justify-center"
             >
               View Full Cart
             </Link>
