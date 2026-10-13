@@ -3,6 +3,7 @@ import { Trash2, ShoppingBag, ArrowRight } from 'lucide-react';
 import { useCartStore } from '../store/useCartStore';
 import { Button } from '../components/common/Button';
 import { formatCurrency } from '../utils/utils';
+import { toast } from '../store/useToastStore';
 
 export default function Cart() {
   const { items, removeItem, updateQuantity, getCartTotal } = useCartStore();
@@ -90,8 +91,12 @@ export default function Cart() {
                       
                       <div className="col-span-1 sm:col-span-1 text-right mt-2 sm:mt-0">
                         <button 
-                          onClick={() => removeItem(item.product.id)}
+                          onClick={() => {
+                            removeItem(item.product.id);
+                            toast.info('Item Removed', `${item.product.name} was removed from your cart.`);
+                          }}
                           className="p-2 text-[#806B73] hover:text-[#D9536F] transition-colors rounded-full hover:bg-[#FFF5F8]"
+                          title="Remove item"
                         >
                           <Trash2 className="w-5 h-5" />
                         </button>

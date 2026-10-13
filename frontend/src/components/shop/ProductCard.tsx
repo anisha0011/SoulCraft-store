@@ -4,6 +4,7 @@ import { Heart, ShoppingBag, Eye } from 'lucide-react';
 import type { Product } from '../../types';
 import { useCartStore } from '../../store/useCartStore';
 import { useWishlistStore } from '../../store/useWishlistStore';
+import { toast } from '../../store/useToastStore';
 import { Badge } from '../common/Badge';
 import { formatCurrency } from '../../utils/utils';
 
@@ -23,8 +24,10 @@ export default function ProductCard({ product }: ProductCardProps) {
     e.preventDefault();
     if (inWishlist) {
       removeFromWishlist(product.id);
+      toast.info('Removed from Wishlist', `${product.name} removed from your wishlist.`);
     } else {
       addToWishlist(product);
+      toast.success('Added to Wishlist', `${product.name} saved to your wishlist.`);
     }
   };
 
@@ -32,9 +35,7 @@ export default function ProductCard({ product }: ProductCardProps) {
     e.preventDefault();
     if (!product.isCustomizable) {
       addToCart(product, 1);
-    } else {
-      // If customizable, ideally redirect to product page or open modal
-      // For now, we'll just redirect to product page via the Link wrapper
+      toast.success('Added to Cart', `${product.name} added to your cart.`);
     }
   };
 

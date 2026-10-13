@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
@@ -14,12 +15,16 @@ import OrderConfirmation from './pages/OrderConfirmation';
 import TrackOrder from './pages/TrackOrder';
 import Account from './pages/Account';
 import AdminDashboard from './pages/AdminDashboard';
+import { ToastContainer } from './components/common/ToastContainer';
+import CartSlideover from './components/common/CartSlideover';
 
 function App() {
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
   return (
     <Router>
       <div className="flex flex-col min-h-screen">
-        <Navbar />
+        <Navbar onCartClick={() => setIsCartOpen(true)} />
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -38,6 +43,8 @@ function App() {
           </Routes>
         </main>
         <Footer />
+        <CartSlideover isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
+        <ToastContainer />
       </div>
     </Router>
   );

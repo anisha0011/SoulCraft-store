@@ -1,5 +1,8 @@
 
 
+import { Link } from 'react-router-dom';
+import { Button } from '../components/common/Button';
+
 export default function About() {
   return (
     <div className="bg-white min-h-screen">
@@ -50,6 +53,19 @@ export default function About() {
               alt="Handmade details" 
               className="w-full h-full object-cover"
             />
+          </div>
+        </div>
+
+        <div className="text-center pt-8 border-t border-[#F0DDE4]">
+          <h3 className="text-2xl font-serif font-bold text-[#3A2930] mb-4">Ready to find something special?</h3>
+          <p className="text-[#806B73] mb-8 max-w-md mx-auto">Explore our ready-to-ship collection or send us a request for a custom handcrafted piece.</p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link to="/shop">
+              <Button size="lg" className="w-full sm:w-auto px-8">Shop All Products</Button>
+            </Link>
+            <Link to="/custom-orders">
+              <Button variant="outline" size="lg" className="w-full sm:w-auto px-8">Custom Orders</Button>
+            </Link>
           </div>
         </div>
       </div>
